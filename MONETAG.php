@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Ads By ヅ 𝑺𝑰𝒀𝑨𝑴 ៚</title>
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(145deg, #232526, #414345);
+            font-family: 'Poppins', sans-serif;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Main Container */
+        .app-container {
+            background: #1c1c1c;
+            border-radius: 20px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
+            padding: 30px 20px;
+            width: 350px;
+        }
+
+        /* Heading */
+        h2 {
+            margin-bottom: 20px;
+            color: #00ffcc;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+
+        /* Developer Label */
+        .developer-label {
+            margin-bottom: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(145deg, #0d0d0d, #2c2c2c);
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        /* Stats */
+        .stats {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .stats p {
+            margin: 5px 0;
+            color: #bbb;
+        }
+
+        /* Buttons */
+        .button {
+            display: block;
+            margin: 15px auto;
+            padding: 14px 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #fff;
+            background: linear-gradient(145deg, #00ffcc, #006b5c);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .button:active {
+            transform: scale(0.98);
+        }
+
+        /* Toast Notifications */
+        #toast {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 10px;
+            animation: fadeInOut 3s ease forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20%, 80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <h2>Auto Ads By MH MEHEDI</h2>
+        <div class="developer-label">Developed By MH MEHEDI</div>
+        
+        <div class="stats">
+            <p id="ads-watched">Watched Ads: 0</p>
+            <p id="points-earned">Earned Points: 0</p>
+        </div>
+
+        <button class="button" onclick="watchAd()">Watch Ad</button>
+        <button class="button" onclick="autoAds()">Auto Show Ads</button>
+        <button class="button" onclick="stopAutoAds()">Stop Auto Ads</button>
+    </div>
+
+    <div id="toast"></div>
+
+    <!-- Monetag Script -->
+    <script src="https://YOUR_MONETAG_URL/vignette.min.js" data-zone="YOUR_ZONE_ID" async></script>
+
+    <script>
+        let adsWatched = 0;
+        let points = 0;
+        const pointsPerAd = 1;
+        let autoAdsInterval;
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+
+        function watchAd() {
+            if (typeof show_8580678 === 'function') {
+                show_8580678().then(() => {
+                    adsWatched++;
+                    points += pointsPerAd;
+                    document.getElementById('ads-watched').innerText = `Watched Ads: ${adsWatched}`;
+                    document.getElementById('points-earned').innerText = `Earned Points: ${points}`;
+                    showToast('Ad watched successfully!');
+                }).catch(() => showToast('Ad failed to load.'));
+            } else {
+                showToast('Ad script not loaded.');
+            }
+        }
+
+        function autoAds() {
+            autoAdsInterval = setInterval(watchAd, 2000);
+            showToast('Auto Ads Started');
+        }
+
+        function stopAutoAds() {
+            clearInterval(autoAdsInterval);
+            showToast('Auto Ads Stopped');
+        }
+    </script>
+</body>
+</html>

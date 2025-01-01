@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8712034' data-sdk='show_8712034'></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Ads By ヅ 𝑺𝑰𝒀𝑨𝑴 ៚</title>
+    <title>Auto Ads By T. Point</title>
     <style>
         /* Global Styles */
         body {
@@ -106,8 +107,8 @@
 </head>
 <body>
     <div class="app-container">
-        <h2>Auto Ads By ヅ 𝑺𝑰𝒀𝑨𝑴 ៚</h2>
-        <div class="developer-label">Developed By ヅ 𝑺𝑰𝒀𝑨𝑴 ៚</div>
+        <h2>Auto Ads By Traffic point</h2>
+        <div class="developer-label">Developed by traffic point</div>
         
         <div class="stats">
             <p id="ads-watched">Watched Ads: 0</p>
@@ -140,8 +141,13 @@
         }
 
         function watchAd() {
-            if (typeof show_8580678 === 'function') {
-                show_8580678().then(() => {
+            if (typeof show_8712034 === 'function') {                    
+show_8712034().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
+    alert('You have seen ad ad!');
+})
+        
                     adsWatched++;
                     points += pointsPerAd;
                     document.getElementById('ads-watched').innerText = `Watched Ads: ${adsWatched}`;
@@ -149,7 +155,7 @@
                     showToast('Ad watched successfully!');
                 }).catch(() => showToast('Ad failed to load.'));
             } else {
-                showToast('Ad script not loaded.');
+                showToast('<script src='//niphaumeenses.net/vignette.min.js' data-zone='8712034' data-sdk='show_8712034'></script>.');
             }
         }
 
@@ -162,6 +168,6 @@
             clearInterval(autoAdsInterval);
             showToast('Auto Ads Stopped');
         }
-    </script>
+    <script src='//niphaumeenses.net/vignette.min.js' data-zone='8712034' data-sdk='show_8712034'></script>
 </body>
 </html>
